@@ -1,0 +1,14 @@
+{
+  "l.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "d.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "t.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "$_GET": [
+      {
+        "type": "text",
+        "name": "sort"
+      },
+      {
+        "type": "text",
+        "name": "dir"
+      }
+    ]
+  },
+  "exec": {
+    "steps": [
+      {
+        "name": "query_users",
+        "module": "dbconnector",
+        "action": "select",
+        "options": {
+          "connection": "db",
+          "sql": {
+            "type": "select",
+            "columns": [
+              {
+                "table": "Users",
+                "column": "user_id"
+              }
+            ],
+            "params": [],
+            "table": {
+              "name": "Users"
+            },
+            "primary": "user_id",
+            "joins": [],
+            "wheres": {
+              "condition": "AND",
+              "rules": [
+                {
+                  "id": "Users.on_duty",
+                  "field": "Users.on_duty",
+                  "type": "boolean",
+                  "operator": "equal",
+                  "value": true,
+                  "data": {
+                    "table": "Users",
+                    "column": "on_duty",
+                    "type": "boolean",
+                    "columnObj": {
+                      "type": "boolean",
+                      "primary": false,
+                      "unique": false,
+                      "nullable": true,
+                      "name": "on_duty"
+                    }
+                  },
+                  "operation": "="
+                }
+              ],
+              "conditional": null,
+              "valid": true
+            },
+            "query": "select `user_id` from `Users` where `Users`.`on_duty` = ?"
+          }
+        },
+        "meta": [
+          {
+            "type": "number",
+            "name": "user_id"
+          }
+        ],
+        "outputType": "array",
+        "output": true
+      },
+      {
+        "name": "user_list",
+        "module": "arraylist",
+        "action": "create",
+        "options": {
+          "value": "{{query_users.flatten('user_id')}}"
+        },
+        "meta": [
+          {
+            "name": "user_id",
+            "type": "number"
+          }
+        ],
+        "outputType": "array"
+      },
+      {
+        "name": "external_id",
+        "module": "arraylist",
+        "action": "value",
+        "options": {
+          "ref": "user_list"
+        },
+        "meta": [
+          {
+            "name": "user_id",
+            "type": "number"
+          }
+        ],
+        "output": true,
+        "outputType": "array"
+      },
+      {
+        "name": "request_json",
+        "module": "core",
+        "action": "setvalue",
+        "options": {
+          "value": {
+            "include with quotes": {
+              "external_id": "{{external_id}}"
+            }
+          }
+        },
+        "meta": [],
+        "outputType": "text",
+        "output": true
+      }
+    ]
+  }
+}
