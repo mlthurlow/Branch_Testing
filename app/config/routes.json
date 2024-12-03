@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "page": "index",
+      "routeType": "page",
+      "layout": "main"
+    },
+    {
+      "path": "/a/l/:code/",
+      "page": "a/l",
+      "layout": "main"
+    },
+    {
+      "path": "/a/d/:code",
+      "page": "a/d",
+      "layout": "main"
+    }
+  ]
+}

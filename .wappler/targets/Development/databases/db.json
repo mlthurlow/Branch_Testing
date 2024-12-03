@@ -1,0 +1,42 @@
+{
+  "type": "sqlite3",
+  "connection": {
+    "filename": "/db/db_scratch.sqlite3"
+  },
+  "direct": true,
+  "schema": {
+    "tables": {
+      "Users": {
+        "columns": {
+          "user_id": {
+            "db": {
+              "type": "increments",
+              "primary": true,
+              "unique": false,
+              "nullable": false
+            }
+          },
+          "Name": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          },
+          "on_duty": {
+            "db": {
+              "type": "boolean",
+              "primary": false,
+              "unique": false,
+              "nullable": true
+            }
+          }
+        },
+        "db": {}
+      }
+    },
+    "views": {}
+  }
+}
