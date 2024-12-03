@@ -1,5 +1,12 @@
 dmx.config({
-  "list": {},
+  "list": {
+    "query": [
+      {
+        "type": "text",
+        "name": "code"
+      }
+    ]
+  },
   "main": {
     "query": [
       {

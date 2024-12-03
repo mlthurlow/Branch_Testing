@@ -1,8 +1,10 @@
-<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="list" appConnect="local" -->
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="list" appConnect="local" components="{dmxStateManagement:{}}" -->
+<dmx-query-manager id="query1"></dmx-query-manager>
 <meta name="ac:route" content="/a/l/:code/">
-<%=_('$_PARAM.code',locals)%>
+<!--<%=_('$_PARAM.code',locals)%> -->
 <div class="row">
     <div class="col">
-        <h1>List Page: My page parameter is: {{query.code}}&nbsp;</h1>
+        <h1 class="text-center">List Page</h1>
+        <h1 class="text-center">My Query Code is: {{query.code}}&nbsp;<small class="text-body-secondary">query.code and query1.data.code is ignored</small></h1>
     </div>
 </div>
