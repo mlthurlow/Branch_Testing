@@ -14,6 +14,12 @@
       "path": "/a/l/:code",
       "page": "a/l",
       "layout": "main"
+    },
+    {
+      "path": "/",
+      "page": "index",
+	  "routeType": "page",
+      "layout": "main"
     }
   ]
 }

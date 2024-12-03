@@ -1,9 +1,9 @@
 {
+  "direct": true,
   "type": "sqlite3",
   "connection": {
-    "filename": "/db/db_scratch.sqlite3"
+    "filename": "/db/db_dev.sqlite3"
   },
-  "direct": true,
   "schema": {
     "tables": {
       "Users": {
