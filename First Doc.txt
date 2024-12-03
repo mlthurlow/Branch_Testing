@@ -1,1 +1,4 @@
 My First entry to git Branch learning
+I've made a new development or feature.
+And now I've published to the development branch, but haven't touched the main branch I believe.
+I didn't pull the development branch and so commits are up to date I believe.
