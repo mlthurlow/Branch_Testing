@@ -6,5 +6,9 @@
   "d.ejs": {
     "layoutPage": "main",
     "description": ""
+  },
+  "t.ejs": {
+    "layoutPage": "main",
+    "description": ""
   }
 }
